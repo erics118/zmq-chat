@@ -15,7 +15,10 @@ def getIpAddress():
     finally:
         sock.close()
 
+    # should work when on the same local network
     return ip
+    # if with tailscale
+    # return "100.64.81.124"
 
 
 def encodeIp(ip):
