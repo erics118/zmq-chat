@@ -8,7 +8,7 @@ def getIpAddress():
 
     try:
         # doesn't have to be reachable
-        sock.connect(("10.1.1.1", 1))
+        sock.connect(("203.0.113.0", 1))
         ip = sock.getsockname()[0]
     except socket.error:
         ip = "0.0.0.0"
