@@ -209,6 +209,7 @@ good-names=i,
            y,
            Run,
            p,
+           ip,
            _
 
 # Good variable names regexes, separated by a comma. If names match any regex,

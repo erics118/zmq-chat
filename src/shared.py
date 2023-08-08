@@ -24,19 +24,19 @@ def makeSocket():
     return socket
 
 
-def makePrimarySocket():
+def makePrimarySocket(ip):
     """Create a socket and bind it to a port."""
 
     socket = makeSocket()
     socket.setsockopt(zmq.IDENTITY, b"A")
-    socket.bind("tcp://*:5555")
+    socket.bind(f"tcp://{ip}:5555")
     return socket
 
 
-def makeSecondarySocket():
+def makeSecondarySocket(ip):
     """Create a socket and connect it to a port."""
 
     socket = makeSocket()
     socket.setsockopt(zmq.IDENTITY, b"B")
-    socket.connect("tcp://localhost:5555")
+    socket.connect(f"tcp://{ip}:5555")
     return socket

@@ -6,12 +6,10 @@ default:
 install:
     pip install -e .
 
-# Run node A
-a:
-    python3 src/nodeA.py
+# Run the primary node
+primary +ip:
+    python3 src/main.py --primary {{ip}}
 
-# Run node B
-b:
-    python3 src/nodeB.py
-
-
+# Run secondary node
+secondary +ip:
+    python3 src/main.py --secondary {{ip}}
