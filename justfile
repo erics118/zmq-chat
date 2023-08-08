@@ -7,9 +7,9 @@ install:
     pip install -e .
 
 # Run the primary node
-primary +ip:
-    python3 src/main.py --primary {{ip}}
+primary:
+    python3 src/main.py --primary
 
 # Run secondary node
-secondary +ip:
-    python3 src/main.py --secondary {{ip}}
+secondary +code:
+    python3 src/main.py --secondary --code {{code}}

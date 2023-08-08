@@ -1,5 +1,7 @@
 import zmq
 
+from ip import decodeIp, getIpAddress
+
 
 def recvMessages(socket):
     """Receive messages from the socket."""
@@ -24,19 +26,23 @@ def makeSocket():
     return socket
 
 
-def makePrimarySocket(ip):
+def makePrimarySocket():
     """Create a socket and bind it to a port."""
+
+    ip = getIpAddress()
 
     socket = makeSocket()
     socket.setsockopt(zmq.IDENTITY, b"A")
     socket.bind(f"tcp://{ip}:5555")
-    return socket
+    return (socket, ip)
 
 
-def makeSecondarySocket(ip):
+def makeSecondarySocket(code):
     """Create a socket and connect it to a port."""
+
+    ip = decodeIp(code)
 
     socket = makeSocket()
     socket.setsockopt(zmq.IDENTITY, b"B")
     socket.connect(f"tcp://{ip}:5555")
-    return socket
+    return (socket, ip)
