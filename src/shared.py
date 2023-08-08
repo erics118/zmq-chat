@@ -8,13 +8,13 @@ def recvMessages(socket):
 
     while True:
         message = socket.recv().decode("utf-8")
-        print("Received message: ", message)
+        print("->", message)
 
 
 def sendMessages(socket):
     """Send messages to the socket."""
     while True:
-        msg = input("Enter your message: ")
+        msg = input("")
         socket.send(msg.encode("utf-8"))
 
 
@@ -33,7 +33,7 @@ def makePrimarySocket():
 
     socket = makeSocket()
     socket.setsockopt(zmq.IDENTITY, b"A")
-    socket.bind(f"tcp://{ip}:5555")
+    socket.bind("tcp://*:5555")
     return (socket, ip)
 
 
