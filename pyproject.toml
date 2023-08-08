@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "zmq-chat"
+version = "0.0.1"
+authors = [{ name = "erics118" }]
+description = "send messages between two computers using zmq"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = ["pyzmq>=25.1.0"]
