@@ -14,7 +14,8 @@ if args.secondary:
 
 print(f"IP Address: {ip}\nRoom Code: {encodeIp(ip)}\n-------------------")
 
+stopEvent = threading.Event()
 
 # create threads for listening and sending messages
-threading.Thread(target=recvMessages, args=(socket,)).start()
-threading.Thread(target=sendMessages, args=(socket,)).start()
+threading.Thread(target=recvMessages, args=(socket, stopEvent)).start()
+threading.Thread(target=sendMessages, args=(socket, stopEvent)).start()

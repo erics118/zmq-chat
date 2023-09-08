@@ -1,6 +1,7 @@
 import socket
 
 
+# CITE: code modified from https://stackoverflow.com/a/28950776
 def getIpAddress():
     """Get the IP address of the current machine."""
 
